@@ -1,3 +1,4 @@
+-- Creación de la vista a consultar
 USE AdventureWorksDW2019;
 GO
 
