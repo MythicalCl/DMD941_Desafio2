@@ -10,6 +10,8 @@ SELECT
     fis.SalesOrderNumber,
     dd.FullDateAlternateKey AS Fecha,
     dp.EnglishProductName AS Producto,
+    dps.EnglishProductSubcategoryName AS Subcategoria,
+    dpc.EnglishProductCategoryName AS Categoria,
     dc.CustomerKey,
     fis.OrderQuantity,
     fis.SalesAmount,
@@ -22,6 +24,10 @@ JOIN dbo.DimDate dd
     ON fis.OrderDateKey = dd.DateKey
 JOIN dbo.DimProduct dp 
     ON fis.ProductKey = dp.ProductKey
+LEFT JOIN dbo.DimProductSubcategory dps
+    ON dp.ProductSubcategoryKey = dps.ProductSubcategoryKey
+LEFT JOIN dbo.DimProductCategory dpc
+    ON dps.ProductCategoryKey = dpc.ProductCategoryKey
 JOIN dbo.DimCustomer dc 
     ON fis.CustomerKey = dc.CustomerKey
 JOIN dbo.DimGeography dg 
@@ -29,6 +35,3 @@ JOIN dbo.DimGeography dg
 JOIN dbo.DimSalesTerritory dst 
     ON dg.SalesTerritoryKey = dst.SalesTerritoryKey;
 GO
-
-SELECT TOP 20 *
-FROM dbo.vw_FactInternetSales;
