@@ -21,3 +21,27 @@ AdventureWorksDW2019 restaurada desde archivo .bak en SQL Server.
 - Desarrollo de consulta SQL para identificar las categorías de productos que representan más del 80% de los ingresos (Regla de Pareto).
 - Desarrollo de consulta SQL para identificar el Top 5 de sucursales con menor rendimiento según su ubicación geográfica.
 - Carga del script `consultas_analisis.sql` y capturas de evidencia de los resultados al repositorio.
+
+
+# Cubo OLAP - DMD941
+
+Se desarrolló un cubo OLAP multidimensional utilizando SQL Server Analysis Services (SSAS) y Visual Studio.
+
+## Tabla de hechos
+- FactInternetSales
+
+## Dimensiones utilizadas
+- DimDate
+- DimProduct
+- DimCustomer
+- DimGeography
+- DimSalesTerritory
+
+## Medidas
+- Sales Amount
+- Order Quantity
+
+## Herramientas
+- SQL Server 2022
+- SSAS Multidimensional
+- Visual Studio 2022
